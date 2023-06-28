@@ -10,7 +10,7 @@ author:
   name: "Rylan Schaeffer"
   email: "reawern@outlook.com"
   twitter: "eriwern"
-gems:
+plugins:
   - jekyll-feed
 
 title: Eric Werner

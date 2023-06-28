@@ -1,0 +1,37 @@
+# Most of this was copied/adapted from Erik Zelikman's blog.
+# https://github.com/ezelikman/ezelikman.github.io
+
+# -----------------------------------------------------------------------------
+# Jekyll settings
+# -----------------------------------------------------------------------------
+
+name: "Eric Werner's Website"
+author:
+  name: "Rylan Schaeffer"
+  email: "reawern@outlook.com"
+  twitter: "eriwern"
+gems:
+  - jekyll-feed
+
+title: Eric Werner
+description: "'Fuck it, we ball.'"
+logo: index/profile_pic.jpg
+show_downloads: false
+#google_analytics: G-1VJF4S0L85
+theme: jekyll-theme-minimal
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+collections_dir: collections
+collections:
+  blog_posts:
+    output: true
+  blog_drafts:
+    output: false
+  own_research:
+    output: true
+  kernel_papers:
+    output: true
+  kernel_papers_drafts:
+    output: false
+

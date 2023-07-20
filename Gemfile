@@ -7,3 +7,6 @@ gem 'jekyll-feed'
 group :jekyll_plugins do
   gem "jekyll-theme-minimal"
 end
+
+# add WEBrick HTTP web server
+gem 'webrick', '~> 1.7'

@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% seo %}
     <link rel="stylesheet" href="/assets/css/style.css">
+
 </head>
 <body>
-    
-    <div class="wrapper">
-        <header> {% include abcheader.html %} </header>
-        <section>
+    <div class="notes-wrapper">
+        <header> {% include abcheader.html %} 
+            <br><br><br>
+            <a style="font-size: 40px;" href="/content/notes.html">&lt;-- notes</a><br>
+        </header>
+        <section class="notes-layout">
             {{ content }}
         </section>
     </div>

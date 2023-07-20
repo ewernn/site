@@ -1,25 +1,29 @@
-# Most of this was copied/adapted from Erik Zelikman's blog.
-# https://github.com/ezelikman/ezelikman.github.io
-
 # -----------------------------------------------------------------------------
 # Jekyll settings
 # -----------------------------------------------------------------------------
 
+remote_theme: pages-themes/architect@v0.2.0
+#theme: jekyll-theme-minimal # minimal
+
 name: "Eric Werner's Website"
 author:
-  name: "Rylan Schaeffer"
-  email: "reawern@outlook.com"
+  name: "Eric Werner"
+  email: "eawern@outlook.com"
   twitter: "eriwern"
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 
-title: Eric Werner
-description: "'Fuck it, we ball.'"
-theme: jekyll-theme-minimal # minima
+description: >- # this means to ignore newlines until "baseurl:"
+  '“Contentment is as rare among men as it is natural among animals.
+    No form of government has ever satisfied its subjects”'
+  -Caesar and the Christ, Will Durant
+#twitter_username: eriwern
+github_username:  ewernn
 logo: index/profile_pic.jpg
 show_downloads: false
 baseurl: ""
-#google_analytics: G-1VJF4S0L85
+google_analytics: G-1VJF4S0L85
 markdown: kramdown
 kramdown:
   math_engine: mathjax

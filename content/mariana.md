@@ -1,3 +1,8 @@
+---
+layout: default # page
+title: "mariana"
+# permalink: /URL-PATH
+---
 # mar
 
 ### definition

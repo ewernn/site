@@ -5,7 +5,7 @@
 remote_theme: pages-themes/architect@v0.2.0
 #theme: jekyll-theme-minimal # minimal
 
-name: "Eric Werner's Website"
+title: "Eric Werner's Website"
 author:
   name: "Eric Werner"
   email: "eawern@outlook.com"

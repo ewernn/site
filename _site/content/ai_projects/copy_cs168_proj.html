@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1VJF4S0L85"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1VJF4S0L85');
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>cs168 project | Eric Werner’s Website</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="cs168 project" />
+<meta name="author" content="Eric Werner" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant" />
+<meta property="og:description" content="‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant" />
+<link rel="canonical" href="http://localhost:4000/content/ai_projects/copy_cs168_proj.html" />
+<meta property="og:url" content="http://localhost:4000/content/ai_projects/copy_cs168_proj.html" />
+<meta property="og:site_name" content="Eric Werner’s Website" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="cs168 project" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Eric Werner"},"description":"‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant","headline":"cs168 project","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/index/profile_pic.jpg"},"name":"Eric Werner"},"url":"http://localhost:4000/content/ai_projects/copy_cs168_proj.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
+    <link rel="stylesheet" href="/assets/css/style.css?v=">    
+    <link rel="stylesheet" href="/assets/css/custom.css?v=">
+</head>
+<body>
+    
+    <div class="wrapper">
+        <header> <h1><a href="http://localhost:4000/">Eric Werner</a></h1>
+<img src="/index/profile_pic.jpg" alt="Logo" width="70%" height="70%" /><br>
+<!-- <a href="/content/mariana.html">mariana</a><br> -->
+<!-- <a href="/content/first_post.html">first post</a><br> -->
+<!-- <a href="/content/notes.html">notes</a><br>
+<a href="/content/chat_box.html">chat</a><br> -->
+
+Machine Learning Projects:<br>
+- <a href="/content/ai_projects/cs224r_proj.html">Reinforcement learning for robotic arm</a><br>
+- <a href="/content/ai_projects/cs224u_proj.html">LLM Prompt-tuning</a><br>
+- <a href="/content/ai_projects/cs229_proj.html">CNN plays GeoGuessr</a><br>
+- <a href="/content/ai_projects/cs237a_proj.html">Autonomous Wheeled robot</a><br>
+- <a href="/content/ai_projects/cs168_proj.html">Vector Similarity Search</a><br>
+ </header>
+        <section>
+            <h1 id="investigated-vector-similarity-search-techniques">Investigated Vector Similarity Search techniques</h1>
+
+<blockquote>
+  <p>Investigated benefits and tradeoffs (like precision vs. recall) of various low- and high-dimensional embedding similarity searches; Locally-Sensitive Hashing (LSH), KNN, PCA, dimension reduction/compression</p>
+</blockquote>
+
+<h3 id="techniques">Techniques</h3>
+<ul>
+  <li>k-d trees: works well for low-dimensional embeddings (&lt;25)</li>
+  <li>but… <strong>curse of dimensionality</strong>; $O(n^2)$ compare time</li>
+  <li>enter… LSH (locally sensitive hashing)!
+    <ul>
+      <li>first, define measure of similarity (cosine, euclidian) (how close data is in original space)</li>
+      <li>maps similar data to same buckets, and dissimilar data to different buckets</li>
+      <li>uses <strong><em>multiple hash functions</em></strong> (i.e. majority of hash functions agree is data is similar)
+        <ul>
+          <li>also, AND- and OR-construction to reduce false positive and negatives, respectively</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>ANNOY builds forest of BSTs to perform ANN search (approx. nearest neighbors)
+    <ul>
+      <li><strong>non-random hyperplane splitting</strong> $\rightarrow$ better with large data</li>
+    </ul>
+  </li>
+  <li>also mentioned is Faiss (Facebook AI Similarity Search), for 5-10x speedup on GPU</li>
+</ul>
+
+<h3 id="measures">Measures</h3>
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Jaccard Similarity: $J(A,B) = {</td>
+          <td>A\cap B</td>
+          <td>\over</td>
+          <td>A\cup B</td>
+          <td>}$ (for binary vectors; absence/presence of feature is key)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>$L_2$ Distance: $L_2(A,B) = \sqrt{\sum_i(a_i-b_i)^2}$ (not normalized; longer docs ~ larger distance)</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Cosine Similarity: $\cos(\theta)={A\cdot B\over</td>
+          <td> </td>
+          <td>A</td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td>B</td>
+          <td> </td>
+          <td>}$ (normalized over sequence length)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p><strong>Next steps:</strong> VSS is widely used. LSH and optimized libraries like Faiss are critical at scale (beating O(n))
+Now, focus is on getting better embeddings and hardware optimizations</p>
+
+        </section>
+    </div>
+
+    <!-- iphone zoom robustness -->
+    <!-- <script src="/assets/js/scale.fix.js"></script> -->
+    <script>
+    
+</script>
+</body>
+</html>

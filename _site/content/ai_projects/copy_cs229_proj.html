@@ -13,21 +13,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>notes | Eric Werner’s Website</title>
+<title>cs229 project | Eric Werner’s Website</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="notes" />
+<meta property="og:title" content="cs229 project" />
 <meta name="author" content="Eric Werner" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant" />
 <meta property="og:description" content="‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant" />
-<link rel="canonical" href="http://localhost:4000/content/notes.html" />
-<meta property="og:url" content="http://localhost:4000/content/notes.html" />
+<link rel="canonical" href="http://localhost:4000/content/ai_projects/copy_cs229_proj.html" />
+<meta property="og:url" content="http://localhost:4000/content/ai_projects/copy_cs229_proj.html" />
 <meta property="og:site_name" content="Eric Werner’s Website" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="notes" />
+<meta property="twitter:title" content="cs229 project" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Eric Werner"},"description":"‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant","headline":"notes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/index/profile_pic.jpg"},"name":"Eric Werner"},"url":"http://localhost:4000/content/notes.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Eric Werner"},"description":"‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant","headline":"cs229 project","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/index/profile_pic.jpg"},"name":"Eric Werner"},"url":"http://localhost:4000/content/ai_projects/copy_cs229_proj.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
@@ -52,18 +52,28 @@ Machine Learning Projects:<br>
 - <a href="/content/ai_projects/cs168_proj.html">Vector Similarity Search</a><br>
  </header>
         <section>
-            <blockquote>
-  <p>I can write notes on my website, so why not… 
-<em>-Eric Werner, 8-16-2023</em></p>
-</blockquote>
+            <p><em>Finetuned Convolutional Neural Net (CNN) to play GeoGuessr (image classification)</em>
+<strong>Finetuned ResNet50 by replacing the last 9 (of 50) layers and classifying on 20 different countries (from 38k Google Streetview screenshots). Ran data augmentation and hyperparameter tuning to achieve 72.5% classification accuracy.</strong></p>
 
-<h2 id="notes">notes</h2>
-
-<ul>
-  <li><a href="notes/nanda_transformer.html">Neel Nanda: What is a transformer?</a></li>
-  <li><a href="notes/lex_hotz.html">Lex Friedman #387: Geroge Hotz</a></li>
-</ul>
-
+<p><strong>METHOD:</strong> 
+	Finetuned ResNet50 by removing last layer, freezing weights, adding 20-class fully connected layer (softmax(log($\hat{y}$))), and retraining on data
+<strong>METHOD 2:</strong> 
+	also unfreeze last <strong>stage</strong>.
+	ResNet has 4 stages with 16 blocks total. Each block has 3 layers (2 1x1xC, 1 3x3x1)
+<strong>HYPERPARAMETER TUNING:</strong> 
+	sampled $\alpha_{lr}, \texttt{batch_size}, \alpha_{\text{Haversine}}, \gamma_{decay}$ 
+	picked 4 values for each, and sampled randomly 30 times, running 10 epochs
+	then, ran 40 epochs on optimal hyperparams
+<strong>DATA:</strong> 
+	50k (224,224,3) normalized Google street view images
+	augment: flip, rotate, crop
+<strong>TRAINING</strong>: 
+	custom loss function to <em>express</em> visual similarity of geometrically-close countries
+	$\text{loss}(y, \hat y) = \sum_i -y^{(i)}\log \hat y^{(i)}$ + $\alpha \sum_i d_{\text{Haversine}}(\hat y^{(i)} - y^{(i)})$ 
+<strong>RESULTS:</strong> 
+	40.3% classification accuracy with feature extraction
+	58.5% classification accuracy with finetuning (CE loss)
+	72.5% classification accuracy with finetuning (custom loss)</p>
 
         </section>
     </div>

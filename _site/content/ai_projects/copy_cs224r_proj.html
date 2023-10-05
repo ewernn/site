@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1VJF4S0L85"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1VJF4S0L85');
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>cs224r project | Eric Werner’s Website</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="cs224r project" />
+<meta name="author" content="Eric Werner" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant" />
+<meta property="og:description" content="‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant" />
+<link rel="canonical" href="http://localhost:4000/content/ai_projects/copy_cs224r_proj.html" />
+<meta property="og:url" content="http://localhost:4000/content/ai_projects/copy_cs224r_proj.html" />
+<meta property="og:site_name" content="Eric Werner’s Website" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="cs224r project" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Eric Werner"},"description":"‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant","headline":"cs224r project","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/index/profile_pic.jpg"},"name":"Eric Werner"},"url":"http://localhost:4000/content/ai_projects/copy_cs224r_proj.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
+    <link rel="stylesheet" href="/assets/css/style.css?v=">    
+    <link rel="stylesheet" href="/assets/css/custom.css?v=">
+</head>
+<body>
+    
+    <div class="wrapper">
+        <header> <h1><a href="http://localhost:4000/">Eric Werner</a></h1>
+<img src="/index/profile_pic.jpg" alt="Logo" width="70%" height="70%" /><br>
+<!-- <a href="/content/mariana.html">mariana</a><br> -->
+<!-- <a href="/content/first_post.html">first post</a><br> -->
+<!-- <a href="/content/notes.html">notes</a><br>
+<a href="/content/chat_box.html">chat</a><br> -->
+
+Machine Learning Projects:<br>
+- <a href="/content/ai_projects/cs224r_proj.html">Reinforcement learning for robotic arm</a><br>
+- <a href="/content/ai_projects/cs224u_proj.html">LLM Prompt-tuning</a><br>
+- <a href="/content/ai_projects/cs229_proj.html">CNN plays GeoGuessr</a><br>
+- <a href="/content/ai_projects/cs237a_proj.html">Autonomous Wheeled robot</a><br>
+- <a href="/content/ai_projects/cs168_proj.html">Vector Similarity Search</a><br>
+ </header>
+        <section>
+            <h1 id="training-robotic-arm-w-visual-encoder-and-model-free-reinforcement-learning">Training Robotic arm w/ visual encoder and model free reinforcement learning</h1>
+<blockquote>
+  <p>Forked Microsoft’s VRL3 reinforcement learning framework to improve sample efficiency.</p>
+
+  <p>Replaced basic image encoder with VC-1, a foundation model trained specifically for Embodied AI for 5x increased sample efficiency.</p>
+
+  <p>Added RLPD (Reinforcement Learning from Prior Data) to improve robustness during exploration and increase online finetuning sample efficiency by 1.5x</p>
+</blockquote>
+
+<p>objective: solve/(improve sample efficiency) D4RL’s Franka kitchen (4 consecutive tasks)
+what we did: we combined VC-1 with VRL3 to improve sample efficiency further (50%?)</p>
+
+<h3 id="vc-1-notes">VC-1 notes:</h3>
+<ul>
+  <li>…is a vision foundation model transformer (ViT) for Embodied AI</li>
+  <li>trained with MAE, so it’s useful for reconstructing images, which is useful downstream to extract features for tasks such as object rearrangement</li>
+  <li>bridges domain gap sim-&gt;real</li>
+  <li>by finetuning, VC-1 focuses much more on end-effector and object outlines
+    <h3 id="vrl3-notes">VRL3 notes</h3>
+    <p>(<a href="https://sites.google.com/nyu.edu/vrl3">link</a>)
+Stages:
+1) Pretrain image encoder on ImageNet
+2) Offline RL</p>
+    <ul>
+      <li><strong>finetune encoder</strong> and <strong>train actor/critic network</strong> on expert demonstrations</li>
+      <li>critical stage b/c of sparse reward
+3) Online RL (RLPD)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Visual learning is hard
+1) visual input
+2) sparse reward
+3) high-D action space
+Only 3 relevant hyperparams: $\alpha$ (policy, Q-networks), exploration action noise, and $\alpha_{encoder} \sim \frac{\alpha}{10}$ 
+Stage Transitions</p>
+<ul>
+  <li>1 -&gt; 2: CCE (conv. channel expansion) to allow first encoder to take in multiple frames</li>
+  <li>2 -&gt; 3: Safe Q: set max-Q value to smoothly transition</li>
+</ul>
+
+<h3 id="vcrl-differences">VCRL differences</h3>
+<ul>
+  <li>VC-1 takes in 224x224 instead of 64x64, so we upscaled images by 3.5x</li>
+  <li>Use calibrated Q-learning (Cal-QL) instead of off-policy actor-critic algo ‘DrQv2’</li>
+</ul>
+
+<h3 id="takeaways">Takeaways</h3>
+<ul>
+  <li>got great at navigating and understanding large codebases</li>
+  <li>learned good practice for production-level code</li>
+  <li>sample efficiency is great (cost, time, capability)
+    <ul>
+      <li>off-policy is for data reuse is great</li>
+      <li>visual pretraining makes visual input tractable</li>
+    </ul>
+  </li>
+  <li>offline expert demonstrations are necessary</li>
+  <li>in stage 2
+    <ul>
+      <li>learning representation+task(conservative RL) &gt; learning just representation</li>
+      <li>We (bad idea) switched from actor-critic to Cal-QL because action space is large. Over-estimation in OOD data</li>
+    </ul>
+  </li>
+  <li>in stage 3
+    <ul>
+      <li>RLPD samples 50% offline and 50% online expert demos (sample randomly before)</li>
+      <li>mitigate overestimating Q-values
+        <ul>
+          <li>1 actor 10 critics 😈 to average out, and avoid blowup from stochasticity</li>
+          <li>also, layer norm</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>We showed that eval on Franka completed 3 of 4 tasks after 1.5M steps, showing promise</li>
+  <li>We also observed 5x improved sample efficiency by switching from IL to BC during pretraining</li>
+  <li>Immersed within production-level RL framework and codebase</li>
+  <li>Improved sample efficiency a lot with VC-1 instead of ResNet18</li>
+</ul>
+
+
+        </section>
+    </div>
+
+    <!-- iphone zoom robustness -->
+    <!-- <script src="/assets/js/scale.fix.js"></script> -->
+    <script>
+    
+</script>
+</body>
+</html>

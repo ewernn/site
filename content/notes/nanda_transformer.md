@@ -6,23 +6,23 @@ title: "nanda_transformer"
 
 ### How a transformer block works, algebraically
 
-* $$A$$ attention: "where do I move information from?"
-* $$x$$: residual stream
-* $$W_v$$: values of prompt tokens, "what info do I move to my current position"
-* $$W_o$$: head --> residual stream
-* $$A,x$$ are **activations**, $$W_o,W_v$$ are **parameters**
+* $A$ attention: "where do I move information from?"
+* $x$: residual stream
+* $W_v$: values of prompt tokens, "what info do I move to my current position"
+* $W_o$: head --> residual stream
+* $A,x$ are **activations**, $W_o,W_v$ are **parameters**
 
-### $$A ~~~ x ~~~ W_v^T ~~~ W_o^T$$
+### $A ~~~ x ~~~ W_v^T ~~~ W_o^T$
 
-### $$(A ~ (x ~ W_v^T)) ~ W_o^T$$
+### $(A ~ (x ~ W_v^T)) ~ W_o^T$
 
-shapes $$(p_{dest},p_{source})\times(p_{source},d_{model})\times(d_{model}, d_{head})\times(d_{head},d_{model})$$
+shapes $(p_{dest},p_{source})\times(p_{source},d_{model})\times(d_{model}, d_{head})\times(d_{head},d_{model})$
 
-note on hopeless intution for values:values are kinda meaningless; they are just a low-rank intermediate state in part of a larger $$d_{model} \times d_{model}$$ matrix $$W_{ov} = W_o W_v$$.
+note on hopeless intution for values:values are kinda meaningless; they are just a low-rank intermediate state in part of a larger $d_{model} \times d_{model}$ matrix $W_{ov} = W_o W_v$.
 <!-- residual stream = context vector -->
 
 ##### me trying to explain how a transformer works
-1. input text is embedded (most simply, a one-hot vector of length $$d_{dictionary}$$)
+1. input text is embedded (most simply, a one-hot vector of length $d_{dictionary}$)
     * embedding is a lookup table mapping tokens to vectors
 2. embedded text is run through series of blocks, with a residual stream carrying the word past each layer
     * each block runs attention on input, and sends this through an MLP

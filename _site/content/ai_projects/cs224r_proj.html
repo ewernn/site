@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1VJF4S0L85"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1VJF4S0L85');
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>cs224r project | Eric Werner’s Website</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="cs224r project" />
+<meta name="author" content="Eric Werner" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant" />
+<meta property="og:description" content="‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant" />
+<link rel="canonical" href="http://localhost:4000/content/ai_projects/cs224r_proj.html" />
+<meta property="og:url" content="http://localhost:4000/content/ai_projects/cs224r_proj.html" />
+<meta property="og:site_name" content="Eric Werner’s Website" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="cs224r project" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Eric Werner"},"description":"‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant","headline":"cs224r project","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/index/profile_pic.jpg"},"name":"Eric Werner"},"url":"http://localhost:4000/content/ai_projects/cs224r_proj.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
+    <link rel="stylesheet" href="/assets/css/style.css?v=">    
+    <link rel="stylesheet" href="/assets/css/custom.css?v=">
+</head>
+<body>
+    
+    <div class="wrapper">
+        <header> <h1><a href="http://localhost:4000/">Eric Werner</a></h1>
+<img src="/index/profile_pic.jpg" alt="Logo" width="70%" height="70%" /><br>
+<!-- <a href="/content/mariana.html">mariana</a><br> -->
+<!-- <a href="/content/first_post.html">first post</a><br> -->
+<!-- <a href="/content/notes.html">notes</a><br>
+<a href="/content/chat_box.html">chat</a><br> -->
+
+Machine Learning Projects:<br>
+- <a href="/content/ai_projects/cs224r_proj.html">Reinforcement learning for robotic arm</a><br>
+- <a href="/content/ai_projects/cs224u_proj.html">LLM Prompt-tuning</a><br>
+- <a href="/content/ai_projects/cs229_proj.html">CNN plays GeoGuessr</a><br>
+- <a href="/content/ai_projects/cs237a_proj.html">Autonomous Wheeled robot</a><br>
+- <a href="/content/ai_projects/cs168_proj.html">Vector Similarity Search</a><br>
+ </header>
+        <section>
+            <h1 id="efficiency-boosted-robotic-reinforcement-learning-via-vc-1-visual-encoding">Efficiency-Boosted Robotic Reinforcement Learning via VC-1 Visual Encoding</h1>
+
+<h2 id="objective">Objective:</h2>
+<p>Enhance sample efficiency in D4RL’s Franka kitchen’s sequential robotic arm tasks using a modified VRL3 reinforcement learning framework.</p>
+
+<h2 id="key-implementation">Key Implementation:</h2>
+<ul>
+  <li><strong>Forked VRL3 Framework</strong>: Incorporated VC-1, a vision foundation model transformer (ViT) for Embodied AI, leading to a 5x surge in sample efficiency.</li>
+  <li><strong>VC-1 Enhancements</strong>: Tailored for object rearrangement, bridging the simulation-to-reality gap and emphasizing on end-effector and object outlines.</li>
+  <li><strong>VRL3 Modifications</strong>: Transformed the VRL3 stages by integrating RLPD for robust exploration and a 1.5x efficiency bump in online fine-tuning. Replaced off-policy actor-critic algorithm ‘DrQv2’ with calibrated Q-learning (Cal-QL).</li>
+  <li><strong>Image Processing</strong>: Scaled images by 3.5x to match VC-1’s 224x224 input dimensions.</li>
+</ul>
+
+<h2 id="findings--takeaways">Findings &amp; Takeaways:</h2>
+<ul>
+  <li><strong>Enhanced Navigability</strong>: Mastery in comprehending and modifying extensive codebases, aligned with production-level code practices.</li>
+  <li><strong>Sample Efficiency</strong>: Crucial for cost, time, and capability; benefits derived from off-policy data reuse and visual pretraining.</li>
+  <li><strong>Optimization Insights</strong>: During stage 2, a combination of representation learning and conservative RL outperformed sole representation learning. In stage 3, RLPD’s sample split (50% offline and 50% online expert demonstrations) was vital.</li>
+  <li><strong>Evaluation</strong>: The adapted model completed 3 of the 4 tasks in 1.5M steps, endorsing its potential.</li>
+</ul>
+
+<h2 id="conclusions">Conclusions:</h2>
+<p>The integration of VC-1 within the VRL3 framework substantially elevated the sample efficiency of model-free reinforcement learning for robotic arm tasks. This project encapsulates a significant step towards practical, sample-efficient reinforcement learning in real-world robotic applications.</p>
+
+        </section>
+    </div>
+
+    <!-- iphone zoom robustness -->
+    <!-- <script src="/assets/js/scale.fix.js"></script> -->
+    <script>
+    
+</script>
+</body>
+</html>

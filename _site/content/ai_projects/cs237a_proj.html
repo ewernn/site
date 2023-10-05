@@ -13,21 +13,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>notes | Eric Werner’s Website</title>
+<title>cs237a project | Eric Werner’s Website</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="notes" />
+<meta property="og:title" content="cs237a project" />
 <meta name="author" content="Eric Werner" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant" />
 <meta property="og:description" content="‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant" />
-<link rel="canonical" href="http://localhost:4000/content/notes.html" />
-<meta property="og:url" content="http://localhost:4000/content/notes.html" />
+<link rel="canonical" href="http://localhost:4000/content/ai_projects/cs237a_proj.html" />
+<meta property="og:url" content="http://localhost:4000/content/ai_projects/cs237a_proj.html" />
 <meta property="og:site_name" content="Eric Werner’s Website" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="notes" />
+<meta property="twitter:title" content="cs237a project" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Eric Werner"},"description":"‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant","headline":"notes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/index/profile_pic.jpg"},"name":"Eric Werner"},"url":"http://localhost:4000/content/notes.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Eric Werner"},"description":"‘“Contentment is as rare among men as it is natural among animals. No form of government has ever satisfied its subjects”’ -Caesar and the Christ, Will Durant","headline":"cs237a project","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/index/profile_pic.jpg"},"name":"Eric Werner"},"url":"http://localhost:4000/content/ai_projects/cs237a_proj.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
@@ -52,18 +52,30 @@ Machine Learning Projects:<br>
 - <a href="/content/ai_projects/cs168_proj.html">Vector Similarity Search</a><br>
  </header>
         <section>
-            <blockquote>
-  <p>I can write notes on my website, so why not… 
-<em>-Eric Werner, 8-16-2023</em></p>
-</blockquote>
+            <h1 id="autonomous-wheeled-robot-navigation-and-mapping-in-simulation">Autonomous Wheeled Robot Navigation and Mapping in Simulation</h1>
 
-<h2 id="notes">notes</h2>
+<h2 id="overview">Overview</h2>
+<p>Developed a wheeled robot capable of autonomously navigating a simulated environment decorated with images of animals and stop signs. The robot accurately mapped the area, obeyed traffic signs, and visited designated locations.</p>
 
+<h2 id="completed-mission">Completed Mission</h2>
+
+<ol>
+  <li>Explored 3D environment and generated map within 30 seconds.</li>
+  <li>Robot identified and interacted with specific animals and stop signs.</li>
+  <li>Successfully navigated to the finish line, adhering to set constraints.</li>
+</ol>
+
+<h2 id="technologies--methods-used">Technologies &amp; Methods Used:</h2>
+
+<p>Communication: Utilized ROS publisher-subscriber model for inter-node communications.
+<strong>Path Planning</strong>: Employed A* algorithm for efficient navigation.
+<strong>Control Systems</strong>: Implemented pose stabilization and trajectory tracking controllers.
+<strong>Localization &amp; Mapping</strong>:</p>
 <ul>
-  <li><a href="notes/nanda_transformer.html">Neel Nanda: What is a transformer?</a></li>
-  <li><a href="notes/lex_hotz.html">Lex Friedman #387: Geroge Hotz</a></li>
+  <li>2D grid mapping for navigational decisions.</li>
+  <li>3D mapping with point clouds using ROS’s PointCloud2 message type.
+<strong>Visualization</strong>: Integrated with RViz for real-time visualization of environment perception, robot’s internal map, point of view, motor speeds, and planned trajectory.</li>
 </ul>
-
 
         </section>
     </div>

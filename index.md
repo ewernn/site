@@ -8,7 +8,7 @@ layout: default
 
 My name is Eric Werner. I just graduated with my masters in CS from Stanford, with a concentration in AI.
 
-
+Just made this site so I'm still adding pictures
 
 
 

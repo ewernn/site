@@ -1,3 +1,6 @@
+---
+layout: default
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,21 +8,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% seo %}
-    <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
-    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">    
-    <link rel="stylesheet" href="{{ "/assets/css/custom.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 </head>
 <body>
-    
     <div class="wrapper">
-        <header> {% include abcheader.html %} </header>
-        <section>
-            {{ content }}
-        </section>
+        <header>
+            {% include abcheader.html %}
+        </header>
+        <main>
+            <nav>
+                <h2>Resume</h2>
+                <a href="{{ '/assets/Eric_Werner_resume.pdf' | absolute_url }}">Resume</a>
+                
+                <h2>Machine Learning Projects</h2>
+                <ul>
+                    <li><a href="/content/ai_projects/cs224r_proj.html">Reinforcement learning for robotic arm</a></li>
+                    <li><a href="/content/ai_projects/cs224u_proj.html">LLM Prompt-tuning</a></li>
+                    <li><a href="/content/ai_projects/cs229_proj.html">CNN plays GeoGuessr</a></li>
+                    <li><a href="/content/ai_projects/cs237a_proj.html">Autonomous Wheeled robot</a></li>
+                    <li><a href="/content/ai_projects/cs168_proj.html">Vector Similarity Search</a></li>
+                </ul>
+                
+                <h2>Prior Projects</h2>
+                <a href="http://www.ewern.weebly.com" target="_blank">Electromechanical projects</a>
+            </nav>
+            <div class="content">
+                {{ content }}
+            </div>
+        </main>
+        <footer>
+            {% include abcfooter.html %}
+        </footer>
     </div>
-
-    <!-- iphone zoom robustness -->
-    <!-- <script src="/assets/js/scale.fix.js"></script> -->
-    {% include scale_fix_js.html %}
 </body>
 </html>
